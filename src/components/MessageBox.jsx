@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from 'material-ui/Card';
 import trim from 'trim';
-import Firebase from 'firebase';
+import Actions from '../actions'
 
 class MessageBox extends React.Component {
     constructor(props) {
@@ -10,7 +10,6 @@ class MessageBox extends React.Component {
             message: ''
         }
         
-        this.firebaseRef = new Firebase('https://ccrespo-react-chat.firebaseio.com/messages');
     }
     
     onChange(evt){
@@ -23,9 +22,7 @@ class MessageBox extends React.Component {
         if(evt.keyCode === 13 && trim(evt.target.value) != ''){
             evt.preventDefault();
             
-            this.firebaseRef.push({
-                message: this.state.message
-            });
+            Actions.sendMessage(this.state.message);
             
             this.setState({
                 message: ''
