@@ -47,7 +47,7 @@ class App extends React.Component {
 
                     <ChannelList />
                     <MessageList />
-                    
+
                 </div>
                 <MessageBox />
             </div>
