@@ -7,12 +7,15 @@ import Actions from '../actions';
 
 class Login extends React.Component {
 
-    onClick(){
-      Actions.login();
+    onClick() {
+        Actions.login(this.context.router);
     }
 
-    render(){
+    static contextTypes = {
+        router: React.PropTypes.func.isRequired
+    }
 
+    render() {
         return (
             <Card style={{
               'maxWidth': '800px',
@@ -27,8 +30,8 @@ class Login extends React.Component {
 
               <RaisedButton style={{
                 display: 'block',
-              }} onClick={this.onClick.bind(this)}
-              label="Log in with Google" primary={true} />
+              }} onClick={this.onClick.bind(this) }
+                label="Log in with Google" primary={true} />
             </Card>
 
         );

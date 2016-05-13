@@ -12,7 +12,8 @@ class ChatStore {
         this.state = { 
             user: null, 
             messages: null,
-            messagesLoading: true };
+            messagesLoading: true 
+        };
     }
     
     @bind(Actions.messagesLoading)
@@ -94,8 +95,7 @@ class ChatStore {
             .keys()
             .map((key) => {
                 channels[key].key = key;
-                if (!selectedChannel){
-                    channels[key].selected = true;
+                if (channels[key].selected){
                     selectedChannel = channels[key];
                 }
             })

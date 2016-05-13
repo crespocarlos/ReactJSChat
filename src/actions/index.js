@@ -1,5 +1,6 @@
 import alt from '../alt';
 import Firebase from 'firebase';
+import { browserHistory } from 'react-router'
 
 class Actions{
     constructor(){
@@ -18,7 +19,7 @@ class Actions{
         );
     }
     
-    login(args){
+    login(router){
         return (dispatch) => {
             var firebaseRef = new Firebase('https://ccrespo-react-chat.firebaseio.com/messages');
             firebaseRef.authWithOAuthPopup('google', (error, user) => {
@@ -27,6 +28,8 @@ class Actions{
                }
                
                dispatch(user);
+               
+               browserHistory.push('/chat');
             });
         }
     }
