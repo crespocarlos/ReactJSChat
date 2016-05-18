@@ -1,5 +1,5 @@
 # chat-reactjs
-Real time chat made in ReactJS to start learning ReactJS
+Real time chat made in ReactJS as part of my learning path
 
 # Course
 It was done following the amazing pluralsight course 
